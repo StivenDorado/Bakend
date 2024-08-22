@@ -1,0 +1,157 @@
+CREATE DATABASE App;
+
+USE App;
+
+CREATE TABLE Users (
+    id INT PRIMARY KEY,
+    contraseña DATE,
+    nombre VARCHAR(100)
+);
+
+INSERT INTO Users (id, contraseña, nombre) VALUES
+(1, '2024-08-01', 'Juan Pérez'),
+(2, '2024-07-15', 'María López'),
+(3, '2024-06-30', 'Carlos García'),
+(4, '2024-08-20', 'Ana Torres'),
+(5, '2024-07-10', 'Luis Hernández'),
+(6, '2024-08-05', 'Sofía Martínez'),
+(7, '2024-06-25', 'José Fernández'),
+(8, '2024-07-20', 'Laura Gómez'),
+(9, '2024-08-08', 'Miguel Sánchez'),
+(10, '2024-07-18', 'Camila Rodríguez');
+
+
+SELECT * FROM Users;
+SELECT * FROM Users WHERE contraseña BETWEEN '2024-07-01' AND '2024-07-31';
+UPDATE Users SET nombre = 'Ana Gutiérrez' WHERE id = 4;
+DELETE FROM Users WHERE id = 7;
+
+
+
+DROP DATABASE App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DROP DATABASE Gestor_Tareas;
+
+CREATE DATABASE Gestor_Tareas;
+
+USE Gestor_Tareas;
+
+CREATE TABLE tareas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    descripcion VARCHAR(255),
+    fecha_limite DATE,
+    estado VARCHAR(20),
+    prioridad VARCHAR(20)
+);
+
+INSERT INTO tareas (descripcion, fecha_limite, estado, prioridad) VALUES
+('Completar informe financiero', '2024-08-31', 'Pendiente', 'Alta'),
+('Reunión con equipo de marketing', '2024-08-25', 'Completada', 'Media'),
+('Enviar correo a proveedores', '2024-08-22', 'Pendiente', 'Baja'),
+('Revisar contrato de cliente', '2024-08-29', 'En progreso', 'Alta'),
+('Actualizar sitio web', '2024-08-30', 'Pendiente', 'Media'),
+('Preparar presentación para junta', '2024-08-27', 'Pendiente', 'Alta'),
+('Renovar suscripción de software', '2024-08-24', 'Completada', 'Baja'),
+('Organizar taller de capacitación', '2024-09-01', 'Pendiente', 'Media'),
+('Realizar análisis de mercado', '2024-08-28', 'En progreso', 'Alta'),
+('Auditar cuentas de redes sociales', '2024-08-26', 'Pendiente', 'Baja');
+
+SELECT * FROM tareas WHERE estado = 'Pendiente';
+SELECT descripcion, prioridad FROM tareas WHERE prioridad = 'Baja';
+UPDATE tareas SET estado = 'Completada' WHERE descripcion = 'Enviar correo a proveedores';
+DELETE FROM tareas WHERE fecha_limite < '2024-08-25';
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE Red_Social;
+
+USE Red_Social;
+
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    email VARCHAR(100),
+    edad INT,
+    ciudad VARCHAR(100)
+);
+
+INSERT INTO usuarios (nombre, email, edad, ciudad) VALUES
+('Juan Pérez', 'juan.perez@mail.com', 28, 'Ciudad de México'),
+('María López', 'maria.lopez@mail.com', 22, 'Buenos Aires'),
+('Carlos García', 'carlos.garcia@mail.com', 35, 'Bogotá'),
+('Ana Torres', 'ana.torres@mail.com', 29, 'Lima'),
+('Luis Hernández', 'luis.hernandez@mail.com', 31, 'Santiago'),
+('Sofía Martínez', 'sofia.martinez@mail.com', 25, 'Montevideo'),
+('José Fernández', 'jose.fernandez@mail.com', 38, 'Quito'),
+('Laura Gómez', 'laura.gomez@mail.com', 27, 'Ciudad de México'),
+('Miguel Sánchez', 'miguel.sanchez@mail.com', 24, 'Lima'),
+('Camila Rodríguez', 'camila.rodriguez@mail.com', 21, 'Bogotá');
+
+
+SELECT * FROM usuarios WHERE ciudad = 'Ciudad de México';
+SELECT nombre, edad FROM usuarios WHERE edad > 30;
+UPDATE usuarios SET ciudad = 'Medellín' WHERE nombre = 'Carlos García';
+DELETE FROM usuarios WHERE edad < 23;
+
+
+
+
+
+
+
+
+CREATE DATABASE Tienda_Online;
+
+USE Tienda_Online;
+
+CREATE TABLE productos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    precio DECIMAL(10, 2),
+    categoria VARCHAR(50),
+    stock INT
+);
+
+INSERT INTO productos (nombre, precio, categoria, stock) VALUES
+('Laptop', 1200.00, 'Electrónica', 15),
+('Smartphone', 800.00, 'Electrónica', 25),
+('Camiseta', 25.00, 'Ropa', 50),
+('Zapatos', 60.00, 'Ropa', 20),
+('Cámara', 500.00, 'Electrónica', 10),
+('Mesa', 150.00, 'Muebles', 5),
+('Silla', 80.00, 'Muebles', 30),
+('Cafetera', 45.00, 'Electrodomésticos', 12),
+('Refrigerador', 900.00, 'Electrodomésticos', 4),
+('Televisor', 600.00, 'Electrónica', 8);
+
+SELECT * FROM productos WHERE categoria = 'Electrónica';
+SELECT nombre, precio FROM productos WHERE precio > 500;
+UPDATE productos SET stock = 20 WHERE nombre = 'Laptop';
+DELETE FROM productos WHERE stock = 0;
+
+
+
+
